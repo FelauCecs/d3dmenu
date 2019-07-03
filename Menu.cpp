@@ -13,14 +13,14 @@
 #pragma warning(disable: 4244)
 #pragma warning(disable: 4996)
 
-#define D3DAygýt LPDIRECT3DDEVICE9
+#define D3DAygÃ½t LPDIRECT3DDEVICE9
 
 using namespace std;
 
-void D3DClass::PostReset(D3DAygýt Aygýt)
+void D3DClass::PostReset(D3DAygÃ½t AygÃ½t)
 {
     font = new CD3DFont("Arial", 7, D3DFONT_CENTERED);
-    font->InitDeviceObjects(Aygýt);
+    font->InitDeviceObjects(AygÃ½t);
     font->RestoreDeviceObjects();
 }
 void D3DClass::PreReset(void)
@@ -117,9 +117,9 @@ void D3DClass::FieldAl(char *str,char *dst,int no)
         strcpy(dst,str);
 }
 
-void D3DClass::ARGB(int x, int y, int w, int h, D3DCOLOR Renk, IDirect3DDevice9* Aygýt)
+void D3DClass::ARGB(int x, int y, int w, int h, D3DCOLOR Renk, IDirect3DDevice9* AygÃ½t)
 {
-	if (!Aygýt)
+	if (!AygÃ½t)
 		return;
 
 	const DWORD D3D_FVF = (D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
@@ -137,19 +137,19 @@ void D3DClass::ARGB(int x, int y, int w, int h, D3DCOLOR Renk, IDirect3DDevice9*
 		{ (float)(x + w), (float)y, 0.0f, 0.0f, Renk }
 	};
 
-	Aygýt->SetRenderState(D3DRS_LIGHTING, TRUE);
-	Aygýt->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
-	Aygýt->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
-	Aygýt->SetRenderState(D3DRS_ZENABLE, D3DZB_FALSE);
-	Aygýt->SetRenderState(D3DRS_FOGENABLE, false);
-	Aygýt->SetRenderState(D3DRS_ALPHABLENDENABLE,TRUE);
-    Aygýt->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_ADD);
-    Aygýt->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
-    Aygýt->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+	AygÃ½t->SetRenderState(D3DRS_LIGHTING, TRUE);
+	AygÃ½t->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
+	AygÃ½t->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+	AygÃ½t->SetRenderState(D3DRS_ZENABLE, D3DZB_FALSE);
+	AygÃ½t->SetRenderState(D3DRS_FOGENABLE, false);
+	AygÃ½t->SetRenderState(D3DRS_ALPHABLENDENABLE,TRUE);
+    AygÃ½t->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_ADD);
+    AygÃ½t->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+    AygÃ½t->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
 
-	Aygýt->SetFVF(D3D_FVF);
-	Aygýt->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, 2, V, sizeof(Vertex));
+	AygÃ½t->SetFVF(D3D_FVF);
+	AygÃ½t->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, 2, V, sizeof(Vertex));
 
 	if (w < 0)w = 1;
 	if (h < 0)h = 1;
@@ -157,36 +157,36 @@ void D3DClass::ARGB(int x, int y, int w, int h, D3DCOLOR Renk, IDirect3DDevice9*
 	if (y < 0)y = 1;
 
 	D3DRECT rec = { x, y, x + w, y + h };
-	Aygýt->Clear(1, &rec, D3DCLEAR_TARGET, Renk, 0, 0);
+	AygÃ½t->Clear(1, &rec, D3DCLEAR_TARGET, Renk, 0, 0);
 }
 
-void D3DClass::ARGB_KENAR_CIZ(int x, int y, int w, int h, int px, D3DCOLOR KenarRenk, IDirect3DDevice9* Aygýt)
+void D3DClass::ARGB_KENAR_CIZ(int x, int y, int w, int h, int px, D3DCOLOR KenarRenk, IDirect3DDevice9* AygÃ½t)
 {
-	ARGB(x, (y + h - px), w, px, KenarRenk, Aygýt);
-	ARGB(x, y, px, h, KenarRenk, Aygýt);
-	ARGB(x, y, w, px, KenarRenk, Aygýt);
-	ARGB((x + w - px), y, px, h, KenarRenk, Aygýt);
+	ARGB(x, (y + h - px), w, px, KenarRenk, AygÃ½t);
+	ARGB(x, y, px, h, KenarRenk, AygÃ½t);
+	ARGB(x, y, w, px, KenarRenk, AygÃ½t);
+	ARGB((x + w - px), y, px, h, KenarRenk, AygÃ½t);
 }
 
-void D3DClass::MENU_OLUSTUR(int x, int y, int w, int h, D3DCOLOR Renk, D3DAygýt Aygýt)
+void D3DClass::MENU_OLUSTUR(int x, int y, int w, int h, D3DCOLOR Renk, D3DAygÃ½t AygÃ½t)
 {
-	ARGB(x, y, w, h, 0xff000000, Aygýt);
-	ARGB_KENAR_CIZ(x, y, w, h, 1, Renk, Aygýt);
+	ARGB(x, y, w, h, 0xff000000, AygÃ½t);
+	ARGB_KENAR_CIZ(x, y, w, h, 1, Renk, AygÃ½t);
 	return;
 }
 
-void D3DClass::KENAR_OLUSTUR(int x, int y, int w, int h, D3DCOLOR Renk, D3DAygýt Aygýt)
+void D3DClass::KENAR_OLUSTUR(int x, int y, int w, int h, D3DCOLOR Renk, D3DAygÃ½t AygÃ½t)
 {
-	MENU_OLUSTUR(x, y, 1, h, Renk, Aygýt);
-	MENU_OLUSTUR(x, y + h, w, 1, Renk, Aygýt);
-	MENU_OLUSTUR(x, y, w, 1, Renk, Aygýt);
-	MENU_OLUSTUR(x + w, y, 1, h + 1, Renk, Aygýt);
+	MENU_OLUSTUR(x, y, 1, h, Renk, AygÃ½t);
+	MENU_OLUSTUR(x, y + h, w, 1, Renk, AygÃ½t);
+	MENU_OLUSTUR(x, y, w, 1, Renk, AygÃ½t);
+	MENU_OLUSTUR(x + w, y, 1, h + 1, Renk, AygÃ½t);
 	return;
 }
 
 
 
-void D3DClass::ShowMenu(D3DAygýt Aygýt)
+void D3DClass::ShowMenu(D3DAygÃ½t AygÃ½t)
 {
     int    lm        =    GetAsyncKeyState(VK_LBUTTON)&1;
     int    rm        =    GetAsyncKeyState(VK_RBUTTON)&1;
@@ -236,13 +236,13 @@ void D3DClass::ShowMenu(D3DAygýt Aygýt)
 
 		Kategori("Credits", "+|-", &H4CK.Creditsler.main);
 		Secenek("Version: 1.0", "",&H4CK.text,H4CK.Creditsler.main,1);
-		Secenek("#Karolinax & MRX", "",&H4CK.text,H4CK.Creditsler.main,1);
+		Secenek("Cihan & Smirnoff & Ege", "",&H4CK.text,H4CK.Creditsler.main,1);
 
-		MENU_OLUSTUR(X,MC_MSY,WIDTH,(NO*I_SPC),C_BOX,Aygýt);
-		KENAR_OLUSTUR(X,MC_MSY,WIDTH,(NO*I_SPC),C_BORDER,Aygýt);
+		MENU_OLUSTUR(X,MC_MSY,WIDTH,(NO*I_SPC),C_BOX,AygÃ½t);
+		KENAR_OLUSTUR(X,MC_MSY,WIDTH,(NO*I_SPC),C_BORDER,AygÃ½t);
 
-		MENU_OLUSTUR(X, Y+20, WIDTH, F_SPC, C_BOX, Aygýt);
-		KENAR_OLUSTUR(X, Y+20, WIDTH, F_SPC, C_BORDER, Aygýt);
+		MENU_OLUSTUR(X, Y+20, WIDTH, F_SPC, C_BOX, AygÃ½t);
+		KENAR_OLUSTUR(X, Y+20, WIDTH, F_SPC, C_BORDER, AygÃ½t);
 		font->DrawTextA(X + 100, Y+23, BLUE, "Frm Hack 1.0", 0x0001);
 		 for(int no=0; no<NO; no++)
         {    
