@@ -243,7 +243,7 @@ void D3DClass::ShowMenu(D3DAygýt Aygýt)
 
 		MENU_OLUSTUR(X, Y+20, WIDTH, F_SPC, C_BOX, Aygýt);
 		KENAR_OLUSTUR(X, Y+20, WIDTH, F_SPC, C_BORDER, Aygýt);
-		font->DrawTextA(X + 100, Y+23, BLUE, "Frm Hack 1.0", 0x0001);
+		font->DrawTextA(X + 100, Y+23, BLUE, "SMIRNOFF MENU V1.0.0", 0x0001);
 		 for(int no=0; no<NO; no++)
         {    
             D3DCOLOR text;
